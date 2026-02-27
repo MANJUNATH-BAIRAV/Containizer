@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Feedback App</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>User Feedback</h1>
+
+    <form method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <textarea name="feedback" placeholder="Your Feedback" required></textarea>
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if message %}
+        <p class="success">{{ message }}</p>
+    {% endif %}
+</div>
+
+</body>
+</html>

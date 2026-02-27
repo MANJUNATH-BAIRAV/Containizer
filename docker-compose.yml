@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  backend:
+    build: ./backend
+    image: containizer-backend
+    container_name: containizer-backend
+    ports:
+      - "9090:9090"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - containizer-data:/app/containizer-data
+
+  frontend:
+    build: ./frontend/src/containizer-ui
+    image: containizer-frontend
+    container_name: containizer-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+volumes:
+  containizer-data:
